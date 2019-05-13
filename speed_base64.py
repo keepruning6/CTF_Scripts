@@ -1,3 +1,5 @@
+#-*-coding:utf-8-*-
+
 import requests
 import base64
 
@@ -20,7 +22,7 @@ def quick():
 
 '''
 def speed():
-	session=requests.Session()    //注意这里和上面的区别在于需要使用session保持连接
+	session=requests.Session()    #注意这里和上面的区别在于需要使用session保持连接
 	response=session.get("http://123.206.87.240:8002/web6/")
 	a=response.headers['flag']
 #	print a
@@ -28,8 +30,9 @@ def speed():
 #	print a
 	a=a[33:]
 	a=base64.b64decode(a)
+	b='margin'
 #	print a
-	payload={'margin':a}
+	payload={b:a}
 	response2=session.post("http://123.206.87.240:8002/web6/",data=payload)
 	print response2.text
 #	print response2.headers
